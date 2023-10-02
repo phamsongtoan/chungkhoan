@@ -1,0 +1,9 @@
+@import '../../../styles/main.scss';
+
+.titleLine {
+  display: inline-block;
+  border-bottom: 4px solid var(--brand-primary);
+  :global {
+    
+  }
+}

@@ -1,0 +1,103 @@
+@import '../../styles/main.scss';
+
+.homePageScreen{
+    :global{
+        .content-below{
+            margin-top: 5rem;
+            .gioithieu{
+                text-align: center;
+                p{
+                    max-width: 50%;
+                    margin: 5rem auto;
+                }
+            }
+            .container-gioithieu{
+                max-width: 75%;
+                margin: 0 auto;
+                padding: 4rem;
+                background-color: var(--brand-primary);
+                font-size: 2rem;
+                font-weight: bold;
+            }
+            .hoc-tap{
+                .row-hoctap{
+                    max-width: 85%;
+                    margin: 0 auto;
+                    .custom-card{
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        h4{
+                            text-align: center;
+                            padding: 0 1.6rem;
+                            color: var(--brand-primary);
+                        }
+                        p{
+                            text-align: center;
+                            padding: 0 1.6rem;
+                        }
+
+                    }
+                }
+            }
+            .section-kienthuc{
+                position: relative;
+                
+                .background-grey{
+                    z-index: -1;
+                    background: #F4F4F4;
+                    height: 24rem;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    transform: translateY(-100%);
+                }
+                .row-tintuc{
+                    max-width: 75%;
+                    margin: 0 auto;
+                    position: relative;
+                    transform: translateY(-25%);
+                    .card-dautu{
+                        height: 100%;
+                        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                        p{
+                            padding: 0 1.6rem;
+                            text-align: center;
+                        }
+                    }
+                    .button-seemore{
+                        display: flex;
+                       justify-content: center;
+                    }
+                    
+                }
+            }
+           
+            .bg-cover{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: -1;
+                height: 100%;
+                width: 100%;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .about-us{
+               ul{
+                list-style-position: inside !important;
+                list-style-type: disc !important;
+                padding-left: 2rem;
+                margin-left: 2rem;
+               }
+               p{
+                text-align: justify;
+               }
+            }
+
+        }
+    }
+}

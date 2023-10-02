@@ -1,0 +1,25 @@
+@import '../../styles/main.scss';
+
+.newsDetail {
+  :global {
+    .text-date{
+      font-size: 1rem;
+    }
+    .list-relative{
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      
+      &>a:not(:last-child){
+        border-bottom: 1px solid #777;
+        padding-bottom: 1.2rem;
+      }
+    }
+    .news-content{
+      img{
+        margin-bottom: 1.6rem;
+      }
+    }
+    
+  }
+}

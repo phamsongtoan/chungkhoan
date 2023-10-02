@@ -1,0 +1,25 @@
+@import '../../../styles/main.scss';
+
+
+.newsItem{
+  display: flex;
+  gap: 1.6rem;
+  &:hover{
+    h6{
+      color: var(--brand-primary);
+    }
+  }
+  :global{
+    .news-detail{
+      h6{
+        @include text-overflow(2);
+        transition: all 0.3s ease;
+      }
+      span{
+        font-size: 10px;
+        @include text-overflow;
+        white-space: nowrap;
+      }
+    }
+  }
+}

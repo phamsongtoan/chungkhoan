@@ -1,0 +1,17 @@
+@import '../../../styles/main.scss';
+
+
+.buttonCustom{
+    min-width: 18rem;
+    min-height: 4rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    outline: none !important;
+    border-radius: 20px;
+    box-shadow: none;
+    border-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    &:global(.button-primary){
+        background: var(--brand-primary);
+    }
+}

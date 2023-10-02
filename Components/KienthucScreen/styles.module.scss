@@ -1,0 +1,16 @@
+@import '../../styles/main.scss';
+
+.kienthuc {
+ 
+  :global {
+    .card-news{
+      box-shadow: none;
+    }
+    .hoc-tap{
+      iframe{
+        border-radius: 1.6rem;
+      }
+    }
+    
+  }
+}

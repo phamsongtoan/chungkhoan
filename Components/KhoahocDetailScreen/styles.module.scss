@@ -1,0 +1,80 @@
+@import "../../styles/main.scss";
+
+.khoahocDetail {
+  :global {
+    .banner-kh {
+      position: relative;
+      .banner-img {
+        max-height: 90vh;
+        position: relative;
+        overflow: hidden;
+        img {
+          height: 100%;
+        }
+        &:after {
+          position: absolute;
+          content: "111";
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--blue-foreground);
+          opacity: 0.7;
+        }
+      }
+      .banner-content {
+        @include absolute-center;
+        width: 100%;
+        .content-inner {
+          p {
+            font-size: 2rem;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .kh-des {
+      .content-bad {
+        ul {
+          list-style: inside !important;
+        }
+      }
+    }
+    .kh-target {
+      .target-content {
+        @include flex-center;
+        position: relative;
+        overflow: hidden;
+        min-height: 35rem;
+        img {
+          @include absolute-center;
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+          object-fit: cover;
+        }
+        span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--blue-foreground);
+          opacity: 0.7;
+          z-index: 1;
+        }
+        .container {
+          position: relative;
+          z-index: 2;
+          color: #fff;
+          .content-main {
+            padding: 2rem;
+            font-size: 2rem;
+            max-width: 60%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}

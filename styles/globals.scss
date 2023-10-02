@@ -1,0 +1,133 @@
+@import './main.scss';
+@import './color.scss';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow: auto;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.4rem !important;
+  font-weight: 300;
+  position: relative;
+}
+
+//custom
+ul {
+  list-style: none;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+  li {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  color: var(--primary-text) !important;
+  text-decoration: none !important;
+}
+
+//header
+
+.header-store {
+  display: none !important;
+  @include Responsive(PHONE) {
+    display: flex !important;
+  }
+}
+
+.header-inner {
+  display: block;
+  @include Responsive(PHONE) {
+    display: none;
+  }
+}
+
+//class text
+
+.text-brand {
+  color: var(--brand-primary);
+}
+.text-primarypage {
+  color: var(--primary-text);
+}
+
+.text-primarypage--reverse {
+  color: var(--primary-text--reverse);
+}
+.text-secondpage {
+  color: var(--secondary-text);
+}
+
+.custom-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--default-border);
+}
+
+//heading
+
+//custom
+
+.accordion-button {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.map-container {
+  min-height: 500px;
+  border: 0;
+  // filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+  // filter: gray; /* IE6-9 */
+  // -webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
+  // -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
+}
+
+h2 {
+  font-size: 4rem !important;
+  font-weight: bold !important;
+}
+h3{
+  font-size: 3rem !important;
+  font-weight: bold !important;
+}
+h4 {
+  font-size: 2rem !important;
+}
+h6 {
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+}
+input{
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background: #FAFAFA;
+  min-height: 4rem;
+}
+
+

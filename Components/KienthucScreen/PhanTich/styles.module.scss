@@ -1,0 +1,10 @@
+@import '../../../styles/main.scss';
+
+.phantich {
+ 
+  :global {
+    .slick-list {margin: 0 -1.6rem;}
+    .slick-slide>div {padding: 0 1.6rem;}
+    
+  }
+}

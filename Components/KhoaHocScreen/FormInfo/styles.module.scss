@@ -1,0 +1,15 @@
+@import "../../../styles/main.scss";
+
+.formInfo {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1.6rem;
+  padding: 4rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  :global {
+  }
+}

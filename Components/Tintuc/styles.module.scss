@@ -1,0 +1,38 @@
+@import '../../styles/main.scss';
+
+.tintuc {
+ 
+  :global {
+    .tintuc-content{
+      .content-noibat{
+        img{
+            max-height: 30rem;
+          }
+          p{
+            font-size: 1.6rem;
+          }
+      }
+    }
+    .content-show{
+      .class-show{
+        text-align: center;
+      }
+    }
+    .tintuc-all{
+      
+      max-width: 90%;
+      display: flex;
+      flex-direction: column;
+  
+      gap: 2.4rem;
+      margin-left: auto;
+      .tintuc-item:not(:last-child){
+        border-bottom: 1px solid #000;
+        padding-bottom: 2.4rem;
+      }
+      
+    }
+    
+    
+  }
+}

@@ -1,0 +1,39 @@
+@import '../../styles/main.scss';
+
+.khoahoc {
+ 
+  :global {
+    .khoahoc-list{
+      .list-item{
+        cursor: pointer;
+        figure{
+          position: relative;
+          img{
+            z-index: -1;
+            max-height: 50rem;
+            object-fit: cover;
+          }
+          span{
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 2rem;
+            font-size: 9rem;
+            font-weight: bold;
+            color: #fff;
+          }
+        }
+        .item-content{
+          li{
+            &:not(:last-child){
+              margin-bottom: 8px;
+            }
+            display: flex; 
+            align-items: center;
+            gap: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
