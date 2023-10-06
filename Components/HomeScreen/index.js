@@ -1,5 +1,4 @@
 import React from 'react'
-import BannerHome from './BannerHome'
 import cn from 'classnames'
 import LayoutPage from '../LayoutPage'
 import styles from './styles.module.scss'
@@ -9,31 +8,37 @@ import CardItem from '../ComponentsInner/CardIteam'
 import Image from 'next/image'
 import ButtonCustom from '../ComponentsInner/ButtonCustom'
 import Link from 'next/link'
+import ImageA from '../ComponentsInner/Image'
 
 const HomeScreen = ({ data }) => {
-  const { subtitle, number_total } = data.attributes
-  console.log('🚀 ~ file: index.js:15 ~ HomeScreen ~ data.attributes:', data.attributes)
+  const { subtitle, number_total, banner, list, hanh_trinh_sub } = data.attributes
+  console.log(
+    '🚀 ~ file: index.js:15 ~ HomeScreen ~ data.attributes:',
+    data.attributes
+  )
   return (
     <LayoutPage>
       <div className={cn(styles.homePageScreen)}>
-        <BannerHome />
+        <div data-aos="fade-down">
+          <figure>
+           <ImageA src={banner?.data?.attributes?.url}/>
+          </figure>
+        </div>
         <div className="content-below">
           <div className="container">
             <div className="gioithieu">
               <h2>
-                1 tài khoản <span className="color-brand">{number_total}+ </span>sản
-                phẩm
+                1 tài khoản{' '}
+                <span className="color-brand">{number_total}+ </span>sản phẩm
               </h2>
-              <p>
-                {subtitle}
-              </p>
+              <p>{subtitle}</p>
             </div>
             <div className="container-gioithieu">
               <Row className="g-5">
-                <Col lg={6}>Tự học cổ phiếu Online</Col>
-                <Col lg={6}>Phân tích chi tiết các công ty</Col>
-                <Col lg={6}>Chia sẻ cố phiếu tăng trưởng tốt mỗi tháng</Col>
-                <Col lg={6}>Mổ hình giao dịch và các công cụ nâng cao</Col>
+                <Col lg={6}>{list?.option1}</Col>
+                <Col lg={6}>{list?.option2}</Col>
+                <Col lg={6}>{list?.option3}</Col>
+                <Col lg={6}>{list?.option4}</Col>
               </Row>
             </div>
             <section className="hoc-tap mt-5 pt-5">
@@ -47,13 +52,28 @@ const HomeScreen = ({ data }) => {
               </p>
               <Row className="g-5 row-hoctap">
                 <Col lg={4}>
-                  <CardItem link={'/khoahoc/hanhtrinh3goc'} className={'custom-card'} title={'HÀNH TRÌNH 3 GỐC'} des={'Cốt lõi nhất, nền tảng phát triển bền vững'} />
+                  <CardItem
+                    link={'/khoahoc/hanhtrinh3goc'}
+                    className={'custom-card'}
+                    title={'HÀNH TRÌNH 3 GỐC'}
+                    des={'Cốt lõi nhất, nền tảng phát triển bền vững'}
+                  />
                 </Col>
                 <Col lg={4}>
-                  <CardItem link={'/khoahoc/timhieubanthan'} className={'custom-card'} title={'THẤU HIÊU BẢN THÂN'} des={'Cốt lõi nhất, nền tảng phát triển bền vững'} />
+                  <CardItem
+                    link={'/khoahoc/timhieubanthan'}
+                    className={'custom-card'}
+                    title={'THẤU HIÊU BẢN THÂN'}
+                    des={'Cốt lõi nhất, nền tảng phát triển bền vững'}
+                  />
                 </Col>
                 <Col lg={4}>
-                  <CardItem link={'/khoahoc/daycon3goc'} className={'custom-card'} title={'DẠY CON 3 GỐC'} des={'Cốt lõi nhất, nền tảng phát triển bền vững'} />
+                  <CardItem
+                    link={'/khoahoc/daycon3goc'}
+                    className={'custom-card'}
+                    title={'DẠY CON 3 GỐC'}
+                    des={'Cốt lõi nhất, nền tảng phát triển bền vững'}
+                  />
                 </Col>
               </Row>
             </section>
@@ -62,9 +82,14 @@ const HomeScreen = ({ data }) => {
             <div className="container">
               <Row className="g-5 row-hoctap">
                 <Col lg={6}>
-                  <HeaderCustom className={'mt-5'} sub={<div>
-                    KIẾN THỨC <br/> ĐẦU TƯ
-                  </div>}>
+                  <HeaderCustom
+                    className={'mt-5'}
+                    sub={
+                      <div>
+                        KIẾN THỨC <br /> ĐẦU TƯ
+                      </div>
+                    }
+                  >
                     KIẾN THỨC <span className="color-brand">ĐẦU TƯ</span>
                   </HeaderCustom>
                 </Col>
@@ -78,18 +103,30 @@ const HomeScreen = ({ data }) => {
               <div className="row-tintuc">
                 <Row className="g-5 ">
                   <Col lg={4}>
-                    <CardItem link={'tintuc/1'} className={'card-dautu'} des={'Tips on How to Buy Essay Online the Correct Way'} />
+                    <CardItem
+                      link={'tintuc/1'}
+                      className={'card-dautu'}
+                      des={'Tips on How to Buy Essay Online the Correct Way'}
+                    />
                   </Col>
                   <Col lg={4}>
-                    <CardItem link={'tintuc/1'} className={'card-dautu'} des={'Internet Data Space Software'}/>
+                    <CardItem
+                      link={'tintuc/1'}
+                      className={'card-dautu'}
+                      des={'Internet Data Space Software'}
+                    />
                   </Col>
                   <Col lg={4}>
-                    <CardItem link={'tintuc/1'} className={'card-dautu'} des={'VDR Software For people who do buiness'}/>
+                    <CardItem
+                      link={'tintuc/1'}
+                      className={'card-dautu'}
+                      des={'VDR Software For people who do buiness'}
+                    />
                   </Col>
                 </Row>
                 <div className="mt-5 button-seemore">
                   <Link href={'/kienthuc'}>
-                  <ButtonCustom>Xem thêm</ButtonCustom>
+                    <ButtonCustom>Xem thêm</ButtonCustom>
                   </Link>
                 </div>
               </div>

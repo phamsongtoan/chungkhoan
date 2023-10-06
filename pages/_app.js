@@ -10,35 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import 'react-image-lightbox/style.css'
 import { useEffect } from 'react'
-import { request } from '../libs/dato'
 
-const FOOTER_QUERY = `query ContactInfoQuery {
-  contactSetting {
-    gallery {
-      url
-      responsiveImage(imgixParams: { fit: crop, w: 2400, h: 2000, auto: format }) {
-        sizes
-        src
-        width
-        height
-        alt
-        title
-        base64
-      }
-    }
-    location {
-      latitude
-      longitude
-    }
-    phoneNumber
-    workingTime
-    callForActionText
-    contactPreline
-    address
-    email
-  }
-}
-`
 function MyApp ({ Component, pageProps, ...props }) {
   useEffect(() => {
     AOS.init({
@@ -57,12 +29,7 @@ function MyApp ({ Component, pageProps, ...props }) {
 }
 
 MyApp.getInitialProps = async (ctx) => {
-  const { contactSetting } = await request({
-    query: FOOTER_QUERY
-  })
-
   return {
-    contactSetting
   }
 }
 
