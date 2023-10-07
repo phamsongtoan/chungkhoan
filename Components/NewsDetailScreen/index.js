@@ -54,7 +54,7 @@ const NewsDetailScreen = ({ className, post, relative }) => {
                       const title = get(post, 'attributes.tieu_de')
                       const desc = `Ngày đăng ${dayjs(post.attributes.createdAt).format('DD/MM/YYYY hh:mm')}`
                       const src = get(post, 'attributes.thumnail.data.attributes.url')
-                      return <NewsItem src={src} link={`/bai-viet/${cat}/${post.id}`} post={post} key={`relative-${post.id}`} title={title} des={desc}/>
+                      return <NewsItem src={src} link={`/bai-viet/${cat}/${post.attributes.slug}`} post={post} key={`relative-${post.id}`} title={title} des={desc}/>
                     })}
                   </div>
               </div>

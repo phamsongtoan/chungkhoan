@@ -40,10 +40,10 @@ const KienthucScreen = ({ className, ...props }) => {
                 <Row className="g-5">
                   {phanTichTamly.slice(1).map(post => {
                     return (
-                      <Col md={6} key={post.id}>
+                      <Col md={6} key={post.attributes.tieu_de}>
                         <CardItem
                           className="card-news"
-                          link={`/bai-viet/phan-tich-tam-ly/${post.id}`}
+                          link={`/bai-viet/phan-tich-tam-ly/${post.attributes.slug}`}
                           title={post.attributes.tieu_de}
                           src={post.attributes.thumnail?.data?.attributes.url}
                         />

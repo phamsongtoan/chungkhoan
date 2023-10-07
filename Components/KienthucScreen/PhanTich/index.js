@@ -24,7 +24,7 @@ const PhanTich = ({ className, title = 'Bộ cơ bản', cat, posts = [] }) => {
                   return (
                     <div key={`PhanTich-${post.attributes.tieu_de}`}>
                     <CardItem
-                      link={`/bai-viet/${cat}/${post.id}`}
+                      link={`/bai-viet/${cat}/${post.attributes.slug}`}
                       src={post.attributes.thumnail.data.attributes.url}
                       className="card-news"
                       title={post.attributes.tieu_de}

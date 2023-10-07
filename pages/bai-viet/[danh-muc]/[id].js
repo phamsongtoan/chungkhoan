@@ -9,10 +9,10 @@ const NewsDetail = (props) => {
 }
 
 export const getStaticPaths = async () => {
-  const { data: result } = await api.get('tin-tucs')
+  const { data: result } = await api.get('tin-tucs?populate=*')
   return {
     paths: result.data.map(result => ({
-      params: { id: result.id.toString(), 'danh-muc': 'tin-tuc' }
+      params: { id: result.attributes.slug?.toString() || '', 'danh-muc': 'tin-tuc' }
     })),
     fallback: true
   }
@@ -24,12 +24,12 @@ export const getStaticProps = async context => {
   const danhMuc = params['danh-muc']
   const id = params.id
 
-  const { data: { data: post } } = await api.get(`${danhMuc}s/${id}?populate=*`)
+  const { data: { data } } = await api.get(`${danhMuc}s?filters[slug][$eq]=${id}&populate=*`)
   const { data: { data: relative } } = await api.get(`${danhMuc}s?populate=*&pagination[limit]=5`)
 
   return {
     props: {
-      post,
+      post: data[0],
       relative
     },
     revalidate: 300

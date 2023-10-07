@@ -43,7 +43,7 @@ const TintucScreen = ({ className, posts: inputPosts }) => {
           <div>
             <TitleLine title="Tin tức Tài chính" className={'mb-5'} />
             <div className="tintuc-content">
-              <Link href={`/bai-viet/tin-tuc/${firstPost.id}`} className="content-noibat">
+              <Link href={`/bai-viet/tin-tuc/${firstPost.attributes.slug}`} className="content-noibat">
                 <Row className="g-5">
                   <Col md={6}>
                     <figure>
@@ -70,7 +70,7 @@ const TintucScreen = ({ className, posts: inputPosts }) => {
                           className={'class-show'}
                           src={post.attributes.thumnail.data.attributes.url}
                           title={post.attributes.tieu_de}
-                          link={`bai-viet/tin-tuc/${post.id}`}
+                          link={`bai-viet/tin-tuc/${post.attributes.slug}`}
                         />
                       </Col>
                     )
@@ -84,7 +84,7 @@ const TintucScreen = ({ className, posts: inputPosts }) => {
             <div className="tintuc-all">
               {currentPosts.map(post => {
                 return (
-                  <Link href={`/bai-viet/tin-tuc/${post.id}`} className="tintuc-item" key={post.id}>
+                  <Link href={`/bai-viet/tin-tuc/${post.attributes.slug}`} className="tintuc-item" key={post.id}>
                     <Row className="g-5">
                       <Col md={4}>
                         <figure>
