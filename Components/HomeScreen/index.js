@@ -11,11 +11,7 @@ import Link from 'next/link'
 import ImageA from '../ComponentsInner/Image'
 
 const HomeScreen = ({ data }) => {
-  const { subtitle, number_total, banner, list, hanh_trinh_sub } = data.attributes
-  console.log(
-    '🚀 ~ file: index.js:15 ~ HomeScreen ~ data.attributes:',
-    data.attributes
-  )
+  const { subtitle, number_total, banner, list, kien_thuc_image, chung_toi_image, chung_toi, hanh_hanh_phu_de, content_marketing, ve_chung_toi_danh_sach } = data.attributes
   return (
     <LayoutPage>
       <div className={cn(styles.homePageScreen)}>
@@ -46,9 +42,7 @@ const HomeScreen = ({ data }) => {
                 HÀNH TRÌNH HỌC TẬP <br />
                 TẠI CHỢ CỔ PHIẾU
               </HeaderCustom>
-              <p className="text-center my-5 pt-5 ">
-                Hành trình học tập tại Chợ Cổ Phiếu <br />
-                là sự kết hợp giữa khoa học & đào học dựa trên nền tảng
+              <p className="text-center my-5 pt-5 " dangerouslySetInnerHTML={{ __html: hanh_hanh_phu_de }}>
               </p>
               <Row className="g-5 row-hoctap">
                 <Col lg={4}>
@@ -94,7 +88,7 @@ const HomeScreen = ({ data }) => {
                   </HeaderCustom>
                 </Col>
                 <Col lg={6}>
-                  <Image src={require('../../assets/ccp/kienthuc.png')} />
+                 <ImageA src={kien_thuc_image?.data?.attributes?.url}/>
                 </Col>
               </Row>
             </div>
@@ -133,12 +127,7 @@ const HomeScreen = ({ data }) => {
             </div>
           </section>
           <div className="container">
-            <section className="text-center my-5 py-5">
-              <h4>Trải nghiệm cùng chúng tôi</h4>
-              <p>
-                Quý khách có thể tin tưởng để chúng tôi mang đến cho <br /> bạn
-                trải nghiệm chưa đủ từng có.
-              </p>
+            <section className="text-center my-5 py-5" dangerouslySetInnerHTML={{ __html: content_marketing }}>
             </section>
           </div>
 
@@ -148,9 +137,11 @@ const HomeScreen = ({ data }) => {
                 Bạn mong muốn trải nghiệm giao dịch hoặc học tập tại chợ cổ
                 phiếu và chưa biết liệu nó có <br /> phù hợp với mình hay không?
               </h4>
-              <ButtonCustom className={'uppercase text-16 fw-bold'}>
-                Đăng ký tư vấn
-              </ButtonCustom>
+              <Link href={'/khoahoc'}>
+                <ButtonCustom className={'uppercase text-16 fw-bold'}>
+                  Đăng ký tư vấn
+                </ButtonCustom>
+              </Link>
             </div>
             <div className="bg-cover">
               <Image src={require('../../assets/ccp/bannerfirst.png')} />
@@ -159,51 +150,24 @@ const HomeScreen = ({ data }) => {
           <div className="container">
             <section className="about-us pt-5 mt-5">
               <Row className="g-5">
+
                 <Col lg={6}>
+
                   <div>
                     <HeaderCustom>VỀ CHÚNG TÔI</HeaderCustom>
-                    <ul className="mt-5 pt-5">
-                      <li>
-                        Contrary to popular belief, Lorem Ipsum is not simply
-                        random text.
-                      </li>
-                      <li>
-                        Richard McClintock, a Latin professor at Hampden-Sydney
-                        College
-                      </li>
-                      <li>
-                        Many desktop publishing packages and web page editors
-                        now
-                      </li>
-                      <li>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting
-                      </li>
-                    </ul>
-                    <div className="mb-5 mt-5">
-                      <h4 className="fw-bold uppercase mb-4">Tầm nhìn</h4>
+                    <p className="mt-5 pt-5" dangerouslySetInnerHTML={{ __html: ve_chung_toi_danh_sach }}/>
+                    {chung_toi.map((it) => (
+                      <div className="mb-5 mt-5" key={it.id}>
+                      <h4 className="fw-bold uppercase mb-4">{it.title}</h4>
                       <p className="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book.
+                       {it.subTitle}
                       </p>
                     </div>
-                    <div>
-                      <h4 className="fw-bold uppercase mb-4">SỨ MỆNH</h4>
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book.
-                      </p>
-                    </div>
+                    ))}
                   </div>
                 </Col>
                 <Col lg={6}>
-                  <Image src={require('../../assets/ccp/Rectangle.png')} />
+                    <ImageA src={chung_toi_image?.data?.attributes?.url}/>
                 </Col>
               </Row>
             </section>

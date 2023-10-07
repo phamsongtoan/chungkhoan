@@ -3,41 +3,37 @@ import cn from 'classnames'
 import styles from './styles.module.scss'
 import { Col, Row } from 'react-bootstrap'
 import Image from 'next/image'
+import ImageA from '../../ComponentsInner/Image'
 
-const Feedback = ({ className }) => {
+const Feedback = ({ className, data }) => {
+  console.log(data, 'data11111')
+  const { feedback, hinh_nguoi, sao, tac_gia } = data
+
+  console.log(hinh_nguoi, 'hinh_nguoi')
+  const formatData = [...Array(sao)].fill(1).map((item, index) => {
+    return {
+      key: index
+    }
+  })
+
   return (
     <div className={cn(styles.feedback, className)}>
       <Row className="g-5">
         <Col lg={6}>
-          <Image src={require('../../../assets/ccp/anhdzai.png')} />
+          <ImageA src={hinh_nguoi?.data?.attributes?.url}/>
         </Col>
         <Col lg={6}>
           <div className="fb-main">
             <ul>
-              <li>
+              {formatData.map(it => (
+                <li key={it.id}>
                 <Image src={require('../../../assets/ccp/star.png')} />
               </li>
-              <li>
-                <Image src={require('../../../assets/ccp/star.png')} />
-              </li>
-              <li>
-                <Image src={require('../../../assets/ccp/star.png')} />
-              </li>
-              <li>
-                <Image src={require('../../../assets/ccp/star.png')} />
-              </li>
-              <li>
-                <Image src={require('../../../assets/ccp/star.png')} />
-              </li>
+              ))}
             </ul>
             <div className="fb-talk">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit,
-                obcaecati, harum id perspiciatis laboriosam quod eligendi, porro
-                quas excepturi quaerat commodi. Numquam, neque magnam quia
-                beatae obcaecati dicta nam quibusdam!
-              </p>
-              <span>Nathan Lee</span>
+              <p dangerouslySetInnerHTML={{ __html: feedback }}/>
+              <span>{tac_gia}</span>
             </div>
           </div>
         </Col>

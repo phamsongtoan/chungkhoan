@@ -3,23 +3,28 @@ import cn from 'classnames'
 import styles from './styles.module.scss'
 import LayoutPage from '../LayoutPage'
 import HeaderCustom from '../ComponentsInner/HeaderCustom'
-import Image from 'next/image'
 import { Col, Row } from 'react-bootstrap'
 import BannerCophieu from './BannerCophieu'
+import ImageA from '../ComponentsInner/Image'
 
-const tableData = [...Array(10)].fill(1).map((item) => {
-  return {
-    logo: '',
-    symbol: 'AIA',
-    name: 'AIA Group Ltd'
-  }
-})
+const CoPhieuScreen = ({ className, data }) => {
+  const { bang_co_phieu, chu_noi_bat, hinh_copytrade, hinh_nen, logo_noi_bat, quy_dau_tu_gioi_thieu, quy_dau_tu_hinh } = data.attributes
 
-const CoPhieuScreen = ({ className }) => {
+  console.log(data, 'data')
+
+  const tableData = bang_co_phieu.map((item) => {
+    return {
+      logo: item?.logo_cong_ty?.data?.attributes?.url,
+      ky_tu: item.ky_tu,
+      cong_ty: item.cong_ty
+    }
+  })
+
+  const contentBanner = { hinhnen: hinh_nen.data.attributes.url, logo: logo_noi_bat.data.attributes.url, chu: chu_noi_bat }
   return (
     <LayoutPage>
       <div className={cn(styles.khoahoc, className, 'mb-5 pb-5')}>
-       <BannerCophieu/>
+       <BannerCophieu data={contentBanner} />
         <div className="container">
           <section className="macophieu mt-5 pt-5">
             <div className='mb-5 pb-5'>
@@ -37,15 +42,15 @@ const CoPhieuScreen = ({ className }) => {
                     <tr key={index}>
                       <td>
                         <figure>
-                          <Image src={it?.logo || require('../../assets/ccp/logoaiaa.png')} />
+                          <ImageA src={it?.logo}/>
                         </figure>
                       </td>
                       <td className='text-center'>
-                        <span className='text-uppercase table-symbol'>{it?.symbol}</span>
+                        <span className='text-uppercase table-symbol'>{it?.ky_tu}</span>
                       </td>
                       <td>
                         <div className='table-name'>
-                          {it?.name}
+                          {it?.cong_ty}
                         </div>
                       </td>
                     </tr>
@@ -58,6 +63,9 @@ const CoPhieuScreen = ({ className }) => {
           <section className='copy-trade pt-5 mt-5'>
             <div className='mb-5 pb-5'>
                 <HeaderCustom>COPYTRADE</HeaderCustom>
+                <figure className='mt-5 pt-5'>
+                  <ImageA src={hinh_copytrade?.data?.attributes?.url}/>
+                </figure>
             </div>
           </section>
           <section className='quy-dau-tu'>
@@ -67,12 +75,11 @@ const CoPhieuScreen = ({ className }) => {
             <Row className="g-5">
                 <Col lg={6}>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.
+                    {quy_dau_tu_gioi_thieu}
                   </p>
                 </Col>
                 <Col lg={6}>
-                   <Image src={require('../../assets/ccp/business.png')} />
+                  <ImageA src={quy_dau_tu_hinh?.data?.attributes?.url}/>
                 </Col>
               </Row>
           </section>
