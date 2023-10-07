@@ -5,13 +5,24 @@ import LayoutPage from '../LayoutPage'
 import TitleLine from '../ComponentsInner/TitleLine'
 import { Col, Row } from 'react-bootstrap'
 import NewsItem from '../ComponentsInner/NewsItem'
-import Image from 'next/image'
-import CardItem from '../ComponentsInner/CardIteam'
-import ItemRelative from '../ComponentsInner/ItemRelative'
+import dayjs from 'dayjs'
+import { get } from 'lodash'
+import { useRouter } from 'next/router'
 
-const NewsDetailScreen = ({ className }) => {
+const NewsDetailScreen = ({ className, post, relative }) => {
+  const { query } = useRouter()
+
+  if (!post) {
+    return null
+  }
+
+  // const thumbnail = get(post, 'attributes.thumnail.data.attributes.url')
+  const content = get(post, 'attributes.noi_dung')
+  const relativePosts = relative.slice(0, 5)
+  const cat = query['danh-muc']
+
   return (
-    <LayoutPage>
+    <LayoutPage title={`Bài Viết | ${post.attributes.tieu_de}`}>
       <div className={cn(styles.newsDetail, className, 'mb-5 pb-5')}>
         <div className="container pt-5">
           <div className="title">
@@ -21,10 +32,10 @@ const NewsDetailScreen = ({ className }) => {
             <Col className='col-lg-8'>
               <div className="news-heading">
                 <h3 className="fw-bold">
-                  Chứng khoán Mỹ giảm, Cuộc chiến chống lạm phát đang diễn ra
+                  {post.attributes.tieu_de}
                 </h3>
                 <span className="text-secondpage text-date">
-                  Ngày đăng 21/06/2023 20:58
+                  Ngày đăng {dayjs(post.attributes.createdAt).format('DD/MM/YYYY hh:mm')}
                 </span>
               </div>
             </Col>
@@ -32,22 +43,19 @@ const NewsDetailScreen = ({ className }) => {
           <Row className=' g-5'>
             <Col className='col-lg-8'>
               <div className='news-content'>
-                  <Image src={require('../../assets/projects/banan.jpeg')} />
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat odit officiis id doloremque consequuntur, iure quia ipsam necessitatibus. Obcaecati tempore dolore aliquid, illo rem vitae minima veniam sit neque sequi.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat odit officiis id doloremque consequuntur, iure quia ipsam necessitatibus. Obcaecati tempore dolore aliquid, illo rem vitae minima veniam sit neque sequi.
-                  </p>
+                 <div dangerouslySetInnerHTML={{ __html: content }}></div>
               </div>
             </Col>
             <Col className='col-lg-4'>
               <div>
                   <TitleLine className={'mb-4'} title={'Các bài nổi bật'} />
                   <div className='list-relative'>
-                   <NewsItem/>
-                   <NewsItem/>
-                   <NewsItem/>
+                    {relativePosts.map(post => {
+                      const title = get(post, 'attributes.tieu_de')
+                      const desc = `Ngày đăng ${dayjs(post.attributes.createdAt).format('DD/MM/YYYY hh:mm')}`
+                      const src = get(post, 'attributes.thumnail.data.attributes.url')
+                      return <NewsItem src={src} link={`/bai-viet/${cat}/${post.attributes.slug}`} post={post} key={`relative-${post.id}`} title={title} des={desc}/>
+                    })}
                   </div>
               </div>
             </Col>

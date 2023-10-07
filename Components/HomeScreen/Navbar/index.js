@@ -4,11 +4,11 @@ import styles from './styles.module.scss'
 import ContentNav from '../ContentNav'
 
 const NavBar = ({ categories, projects }) => {
-  const [tabActive, setTabActive] = useState('all')
+  const [tabActive] = useState('all')
 
-  const changeTab = (item) => () => {
-    setTabActive(item)
-  }
+  // const changeTab = (item) => () => {
+  //   setTabActive(item)
+  // }
 
   const renderList = useMemo(() => {
     if (tabActive === 'all') {
