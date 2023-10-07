@@ -5,7 +5,7 @@ import Slider from 'react-slick'
 import CardItem from '../../ComponentsInner/CardIteam'
 import TitleLine from '../../ComponentsInner/TitleLine'
 
-const PhanTich = ({ className, title = 'Bộ cơ bản' }) => {
+const PhanTich = ({ className, title = 'Bộ cơ bản', cat, posts = [] }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -20,38 +20,18 @@ const PhanTich = ({ className, title = 'Bộ cơ bản' }) => {
             <TitleLine className={'mb-5'} title = {title}/>
             <div>
               <Slider {...settings}>
-                <div>
-                  <CardItem
-                    className="card-news"
-                    title={
-                      'There are many variations of passages of Lorem Ipsum available'
-                    }
-                  />
-                </div>
-                <div>
-                  <CardItem
-                    className="card-news"
-                    title={
-                      'There are many variations of passages of Lorem Ipsum available'
-                    }
-                  />
-                </div>
-                <div>
-                  <CardItem
-                    className="card-news"
-                    title={
-                      'There are many variations of passages of Lorem Ipsum available'
-                    }
-                  />
-                </div>
-                <div>
-                  <CardItem
-                    className="card-news"
-                    title={
-                      'There are many variations of passages of Lorem Ipsum available'
-                    }
-                  />
-                </div>
+                {posts.map(post => {
+                  return (
+                    <div key={`PhanTich-${post.attributes.tieu_de}`}>
+                    <CardItem
+                      link={`/bai-viet/${cat}/${post.id}`}
+                      src={post.attributes.thumnail.data.attributes.url}
+                      className="card-news"
+                      title={post.attributes.tieu_de}
+                    />
+                  </div>
+                  )
+                })}
               </Slider>
             </div>
           </section>

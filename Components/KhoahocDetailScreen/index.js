@@ -5,7 +5,6 @@ import LayoutPage from '../LayoutPage'
 import ButtonCustom from '../ComponentsInner/ButtonCustom'
 import { Col, Row } from 'react-bootstrap'
 import Image from 'next/image'
-import ItemRelative from '../ComponentsInner/ItemRelative'
 import FormInfo from '../KhoaHocScreen/FormInfo'
 
 const KhoahocDetailScreen = ({ className }) => {
