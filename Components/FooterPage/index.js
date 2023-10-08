@@ -8,8 +8,14 @@ import {
   AiFillYoutube,
   AiOutlineTwitter
 } from 'react-icons/ai'
+import { useAppContext } from '../../Context/AppContext'
 
 const FooterPage = () => {
+  const { footer } = useAppContext()
+  console.log('🐳 -> FooterPage -> footer', footer)
+
+  const { facebook, hotline, logo, twitter, youtube } = footer.data.attributes
+
   return (
     <div data-aos="fade-up" className={cn(styles.footerPage, 'pt-5 mt-5')}>
       <div className="container">

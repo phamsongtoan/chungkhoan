@@ -11,6 +11,7 @@ export const getStaticProps = async () => {
 }
 
 export default function Home (props) {
+  console.log('🐳 -> Home -> props', props)
   return (
    <HomeScreen {...props}/>
   )

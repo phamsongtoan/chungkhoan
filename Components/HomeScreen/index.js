@@ -13,10 +13,7 @@ import ImageA from '../ComponentsInner/Image'
 
 const HomeScreen = ({ data }) => {
   const { subtitle, number_total, banner, list, hanh_trinh_sub } = data.attributes
-  console.log(
-    '🚀 ~ file: index.js:15 ~ HomeScreen ~ data.attributes:',
-    data.attributes
-  )
+
   return (
     <LayoutPage>
       <div className={cn(styles.homePageScreen)}>

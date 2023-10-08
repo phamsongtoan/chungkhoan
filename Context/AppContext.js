@@ -4,9 +4,11 @@ const AppContext = React.createContext({
   footer: {}
 })
 
-export const AppProvider = ({ children }) => {
-  const [footer, setFooter] = useState({})
-  return <AppContext.Provider value={{ footer, setFooter }}>{children}</AppContext.Provider>
+export const AppProvider = ({ children, state }) => {
+  console.log('🐳 -> AppProvider -> state', state.props.config)
+  // const [footer, setFooter] = useState(() => state?.config)
+  // console.log('🐳 -> AppProvider -> state', footer)
+  return <AppContext.Provider value={{ footer: state.props.config }}>{children}</AppContext.Provider>
 }
 
 export const useAppContext = () => {
