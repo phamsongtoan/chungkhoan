@@ -3,7 +3,6 @@ import cn from 'classnames'
 import styles from './styles.module.scss'
 import LayoutPage from '../LayoutPage'
 import { Col, Row } from 'react-bootstrap'
-import Image from 'next/image'
 import Link from 'next/link'
 import Slider from 'react-slick'
 import Feedback from './Feedback'
@@ -13,8 +12,15 @@ import {
   BsFillClockFill,
   BsFillPinMapFill
 } from 'react-icons/bs'
+import ImageA from '../ComponentsInner/Image'
 
-const KhoaHocScreen = ({ className }) => {
+const KhoaHocScreen = ({ className, ...props }) => {
+  const { bokhoahoc, khoahoc } = props
+
+  const { danh_gia } = khoahoc?.data?.attributes
+  const { data } = bokhoahoc
+
+  console.log(data, 'bokhoahoc')
   const settings = {
     dots: false,
     infinite: true,
@@ -30,84 +36,37 @@ const KhoaHocScreen = ({ className }) => {
         <div className="container mt-5 pt-5">
           <div className="khoahoc-list mb-5 pb-5">
             <Row className="g-5">
-              <Col lg={4}>
-                <Link href={'/khoahoc/1'} className="list-item">
-                  <figure>
-                    <Image src={require('../../assets/ccp/khoahoc2.png')} />
-                    <span>2</span>
-                  </figure>
-                  <div className="item-content">
-                    <h4 className="mt-4">Khóa học 2: Chứng khoán ABC</h4>
-                    <span>Khám phá chính mình qua công cụ Tâm Lý, DISC</span>
-                    <ul className="mt-3">
-                      <li>
-                        <BsFillPersonFill />
-                        <span>Thầy Trần Việt Quân | NKST</span>
-                      </li>
-                      <li>
-                        <BsFillClockFill />
-                        <span>25.08.2023</span>
-                      </li>
-                      <li>
-                        <BsFillPinMapFill />
-                        <span>Hồ Chí Minh</span>
-                      </li>
-                    </ul>
-                  </div>
-                </Link>
-              </Col>
-              <Col lg={4}>
-                <Link href={'/khoahoc/1'} className="list-item">
-                  <figure>
-                    <Image src={require('../../assets/ccp/khoahoc2.png')} />
-                    <span>2</span>
-                  </figure>
-                  <div className="item-content">
-                    <h4 className="mt-4">Khóa học 2: Chứng khoán ABC</h4>
-                    <span>Khám phá chính mình qua công cụ Tâm Lý, DISC</span>
-                    <ul className="mt-3">
-                      <li>
-                        <BsFillPersonFill />
-                        <span>Thầy Trần Việt Quân | NKST</span>
-                      </li>
-                      <li>
-                        <BsFillClockFill />
-                        <span>25.08.2023</span>
-                      </li>
-                      <li>
-                        <BsFillPinMapFill />
-                        <span>Hồ Chí Minh</span>
-                      </li>
-                    </ul>
-                  </div>
-                </Link>
-              </Col>
-              <Col lg={4}>
-                <Link href={'/khoahoc/1'} className="list-item">
-                  <figure>
-                    <Image src={require('../../assets/ccp/khoahoc2.png')} />
-                    <span>2</span>
-                  </figure>
-                  <div className="item-content">
-                    <h4 className="mt-4">Khóa học 2: Chứng khoán ABC</h4>
-                    <span>Khám phá chính mình qua công cụ Tâm Lý, DISC</span>
-                    <ul className="mt-3">
-                      <li>
-                        <BsFillPersonFill />
-                        <span>Thầy Trần Việt Quân | NKST</span>
-                      </li>
-                      <li>
-                        <BsFillClockFill />
-                        <span>25.08.2023</span>
-                      </li>
-                      <li>
-                        <BsFillPinMapFill />
-                        <span>Hồ Chí Minh</span>
-                      </li>
-                    </ul>
-                  </div>
-                </Link>
-              </Col>
+              {data.slice(0, 3).map((it, index) => {
+                const dataInner = it?.attributes
+                return (
+                 <Col lg={4} key={it.id}>
+                 <Link href={`khoahoc/${it.attributes.slug}`} className="list-item">
+                   <figure>
+                      <ImageA src={dataInner?.thumnail?.data?.attributes?.url}/>
+                     <span>{index + 1}</span>
+                   </figure>
+                   <div className="item-content">
+                     <h4 className="mt-4">{dataInner?.tieu_de}</h4>
+                     <span className='sub'>{dataInner?.phu_de}</span>
+                     <ul className="mt-3">
+                       <li>
+                         <BsFillPersonFill />
+                         <span>{dataInner?.chuc_danh}</span>
+                       </li>
+                       <li>
+                         <BsFillClockFill />
+                         <span>{dataInner?.thoi_gian}</span>
+                       </li>
+                       <li>
+                         <BsFillPinMapFill />
+                         <span>{dataInner?.dia_diem}</span>
+                       </li>
+                     </ul>
+                   </div>
+                 </Link>
+               </Col>
+                )
+              })}
             </Row>
           </div>
           <div className="mt-5 pt-5">
@@ -115,15 +74,13 @@ const KhoaHocScreen = ({ className }) => {
           </div>
           <div className="khoahoc-fb mt-5 pt-5">
             <Slider {...settings}>
-              <div>
-                <Feedback />
-              </div>
-              <div>
-                <Feedback />
-              </div>
-              <div>
-                <Feedback />
-              </div>
+              { danh_gia.map((it) => {
+                return (
+                  <div key={it?.id}>
+                  <Feedback data={it} />
+                </div>
+                )
+              })}
             </Slider>
           </div>
         </div>

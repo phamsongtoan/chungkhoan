@@ -27,12 +27,12 @@ const FooterPage = () => {
             <ul>
               <li>
                 <h4>
-                  <Link href={''}>Điều khoản sử dụng</Link>
+                  <Link href={'/dieu-khoan-su-dung'}>Điều khoản sử dụng</Link>
                 </h4>
               </li>
               <li>
                 <h4>
-                  <Link href={''}>Chính sách bảo mật</Link>
+                  <Link href={'/chinh-sach-bao-mat'}>Chính sách bảo mật</Link>
                 </h4>
               </li>
               <li>
@@ -46,12 +46,12 @@ const FooterPage = () => {
             <ul>
               <li>
                 <h4>
-                  <Link href={''}>Tin tức mới</Link>
+                  <Link href={'/tintuc'}>Tin tức mới</Link>
                 </h4>
               </li>
               <li>
                 <h4>
-                  <Link href={''}>Phân tích kỹ thuật</Link>
+                  <Link href={'/kienthuc'}>Phân tích kỹ thuật</Link>
                 </h4>
               </li>
             </ul>

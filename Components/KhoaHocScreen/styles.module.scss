@@ -10,7 +10,7 @@
           position: relative;
           img{
             z-index: -1;
-            max-height: 50rem;
+            height: 50rem;
             object-fit: cover;
           }
           span{
@@ -24,6 +24,13 @@
           }
         }
         .item-content{
+          h4, .sub{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            display: block;
+          }
+         
           li{
             &:not(:last-child){
               margin-bottom: 8px;

@@ -1,14 +1,15 @@
 import React from 'react'
 import cn from 'classnames'
 import styles from './styles.module.scss'
-import Image from 'next/image'
 import { Col, Row } from 'react-bootstrap'
+import ImageA from '../../ComponentsInner/Image'
 
-const BannerCophieu = ({ className }) => {
+const BannerCophieu = ({ className, data }) => {
+  const { hinhnen, chu, logo } = data
   return (
     <div className={cn(styles.bannerCophieu, className)}>
       <figure className='background-banner'>
-        <Image src={require('../../../assets/ccp/bannerkhoahoc.png')} />
+      <ImageA src={hinhnen}/>
         <span></span>
       </figure>
       <div className="khoahoc-content">
@@ -16,16 +17,14 @@ const BannerCophieu = ({ className }) => {
           <Row className="g-5 h-100">
             <Col lg={6} className='h-100'>
               <div className="content-together h-100">
-                <Image src={require('../../../assets/ccp/logoaiaa.png')} />
+                <ImageA src={logo}/>
               </div>
             </Col>
             <Col lg={6} className='h-100'>
               <div className="content-together h-100 text-center">
-                <h3 className='fw-bold'>
-                  Thương vụ cổ phiếu tháng 6 <br/>
-                      cổ phiếu nổi bật
-                </h3>
-
+                <h3 className='fw-bold' dangerouslySetInnerHTML={{ __html: chu }} />
+                  {/* Thương vụ cổ phiếu tháng 6 <br/>
+                      cổ phiếu nổi bật */}
               </div>
             </Col>
           </Row>
