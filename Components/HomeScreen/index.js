@@ -12,7 +12,7 @@ import Link from 'next/link'
 import ImageA from '../ComponentsInner/Image'
 
 const HomeScreen = ({ data }) => {
-  const { subtitle, number_total, banner, list, kien_thuc_image, chung_toi_image, chung_toi, hanh_hanh_phu_de, content_marketing, ve_chung_toi_danh_sach } = data.attributes
+  const { subtitle, tieu_de_chinh, banner, list, kien_thuc_image, chung_toi_image, chung_toi, hanh_trinh_phu_de, content_marketing, ve_chung_toi_danh_sach, slogan_dang_ky, hinh_nen_dang_ky } = data.attributes
   return (
     <LayoutPage>
       <div className={cn(styles.homePageScreen)}>
@@ -24,10 +24,12 @@ const HomeScreen = ({ data }) => {
         <div className="content-below">
           <div className="container">
             <div className="gioithieu">
-              <h2>
+              <div dangerouslySetInnerHTML={{ __html: tieu_de_chinh }}/>
+              {/* <h2>
                 1 tài khoản{' '}
                 <span className="color-brand">{number_total}+ </span>sản phẩm
-              </h2>
+              </h2> */}
+
               <p>{subtitle}</p>
             </div>
             <div className="container-gioithieu">
@@ -43,7 +45,7 @@ const HomeScreen = ({ data }) => {
                 HÀNH TRÌNH HỌC TẬP <br />
                 TẠI CHỢ CỔ PHIẾU
               </HeaderCustom>
-              <p className="text-center my-5 pt-5 " dangerouslySetInnerHTML={{ __html: hanh_hanh_phu_de }}>
+              <p className="text-center my-5 pt-5 " dangerouslySetInnerHTML={{ __html: hanh_trinh_phu_de }}>
               </p>
               <Row className="g-5 row-hoctap">
                 <Col lg={4}>
@@ -134,10 +136,11 @@ const HomeScreen = ({ data }) => {
 
           <section className="text-center mt-5 pt-5 p-5 position-relative">
             <div className="container">
-              <h4 className="mb-5">
+              <div className='mb-5'dangerouslySetInnerHTML={{ __html: slogan_dang_ky }} />
+              {/* <h4 className="mb-5">
                 Bạn mong muốn trải nghiệm giao dịch hoặc học tập tại chợ cổ
                 phiếu và chưa biết liệu nó có <br /> phù hợp với mình hay không?
-              </h4>
+              </h4> */}
               <Link href={'/khoahoc'}>
                 <ButtonCustom className={'uppercase text-16 fw-bold'}>
                   Đăng ký tư vấn
@@ -145,7 +148,7 @@ const HomeScreen = ({ data }) => {
               </Link>
             </div>
             <div className="bg-cover">
-              <Image src={require('../../assets/ccp/bannerfirst.png')} />
+              <ImageA src={hinh_nen_dang_ky?.data?.attributes?.url}/>
             </div>
           </section>
           <div className="container">

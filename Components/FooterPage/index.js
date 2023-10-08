@@ -12,9 +12,8 @@ import { useAppContext } from '../../Context/AppContext'
 
 const FooterPage = () => {
   const { footer } = useAppContext()
-  console.log('🐳 -> FooterPage -> footer', footer)
 
-  const { facebook, hotline, logo, twitter, youtube } = footer.data.attributes
+  const { facebook, hotline, twitter, youtube } = footer.data.attributes
 
   return (
     <div data-aos="fade-up" className={cn(styles.footerPage, 'pt-5 mt-5')}>
@@ -37,7 +36,7 @@ const FooterPage = () => {
               </li>
               <li>
                 <h4>
-                  <Link href={''}>Liên hệ</Link>
+                  <a href={`tel:${hotline}`}>Liên hệ</a>
                 </h4>
               </li>
             </ul>
@@ -60,15 +59,24 @@ const FooterPage = () => {
             <div>
               <h5 className='mb-4'>KẾT NỐI VỚI CHÚNG TÔI</h5>
               <ul className='social'>
-                <li>
-                  <AiFillFacebook />
-                </li>
-                <li>
+                {facebook && <li>
+                  <a href={facebook} target="_blank" rel="noreferrer" >
+                    <AiFillFacebook />
+                  </a>
+                </li>}
+
+                {twitter && <li>
+                <a href={twitter} target="_blank" rel="noreferrer" >
                   <AiOutlineTwitter />
-                </li>
-                <li>
-                  <AiFillYoutube />
-                </li>
+                </a>
+                </li>}
+                {
+                  youtube && <li>
+                  <a href={youtube} target="_blank" rel="noreferrer" >
+                    <AiFillYoutube />
+                  </a>
+                  </li>
+                }
               </ul>
             </div>
           </Col>

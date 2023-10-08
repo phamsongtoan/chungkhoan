@@ -18,15 +18,17 @@
     align-items: center;
     gap: 2.4rem;
     li{
-      height: 4.5rem;
-      width: 4.5rem;
-      border-radius: 50%;
-      background-color: var(--brand-primary);
-      color: var(--blue-foreground);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.4rem;
+      a{
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        background-color: var(--brand-primary);
+        color: var(--blue-foreground);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.4rem;
+      }
     }
    }
   }

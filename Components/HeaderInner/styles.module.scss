@@ -27,7 +27,6 @@
             font-size: 1.6rem;
             cursor: pointer;
             position: relative;
-            padding-bottom: 1rem;
             &:after {
               position: absolute;
               content: '';
@@ -49,6 +48,22 @@
               width: 100%;
             }
           }
+        }
+      }
+      .header-social{
+        display: flex;
+        align-items: center;
+        gap: 1.6rem;
+        margin-left: 3.2rem;
+        .icon-header{
+          font-size: 2rem;
+          color: var(--brand-primary);
+        }
+        .icon-tel{
+          transform: rotate(-270deg);
+        }
+        a:hover{
+          color: var(--brand-primary);
         }
       }
     }

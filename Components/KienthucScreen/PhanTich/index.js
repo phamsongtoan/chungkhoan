@@ -8,7 +8,7 @@ import TitleLine from '../../ComponentsInner/TitleLine'
 const PhanTich = ({ className, title = 'Bộ cơ bản', cat, posts = [] }) => {
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

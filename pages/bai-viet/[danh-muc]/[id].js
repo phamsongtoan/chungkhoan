@@ -32,7 +32,7 @@ export const getStaticProps = async context => {
       post: data[0],
       relative
     },
-    revalidate: 300
+    revalidate: 1
   }
 }
 

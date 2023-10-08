@@ -4,6 +4,11 @@
 .cardItem{
   overflow: hidden;
   :global{
+    .card-item{
+      img{
+        aspect-ratio: 16/9;
+      }
+    }
     
   }
 }

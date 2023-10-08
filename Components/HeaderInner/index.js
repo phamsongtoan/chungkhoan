@@ -5,10 +5,22 @@ import Link from 'next/link'
 import MenuFixedInfo from '../ComponentsInner/MenuFixedInfo'
 import { useRouter } from 'next/router'
 
+import {
+  AiTwotoneMail,
+  AiTwotonePhone
+} from 'react-icons/ai'
+import { useAppContext } from '../../Context/AppContext'
+
 const HeaderInner = ({ allCategories }) => {
   const router = useRouter()
   const [showMenu, setShowMenu] = useState(false)
   const [, setScroll] = useState(false)
+
+  const { footer } = useAppContext()
+
+  console.log(footer, 'footer')
+
+  const { mail, hotline } = footer.data.attributes
 
   const handleShowMenu = () => {
     setShowMenu(!showMenu)
@@ -61,6 +73,15 @@ const HeaderInner = ({ allCategories }) => {
                 )
               })}
             </ul>
+            <div className='header-social'>
+                <a href={`tel:${hotline}`} target="_blank" rel="noreferrer" >
+                    <AiTwotonePhone className='icon-header icon-tel'/> &nbsp; <span>{hotline}</span>
+                  </a>
+                  <a href={`mailto:${mail}`} target="_blank" rel="noreferrer" >
+                    <AiTwotoneMail className='icon-header'/> &nbsp; <span>{mail}</span>
+                  </a>
+            </div>
+
             {/* <div onClick={handleShowMenu} className="header-burger"> */}
             {/* <Burger isCheck={showMenu} handleCheck={handleShowMenu} /> */}
             {/* </div> */}

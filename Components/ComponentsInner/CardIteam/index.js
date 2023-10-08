@@ -7,7 +7,7 @@ import Link from 'next/link'
 const CardItem = ({ title, src, srcItem, des, isNews, className, link }) => {
   return (
     <Link href={link || '/'} className={cn(styles.cardItem, 'pb-5', className)}>
-      <ImgHover src={src}/>
+      <ImgHover className='card-item' src={src}/>
       {title &&
         (isNews
           ? (
