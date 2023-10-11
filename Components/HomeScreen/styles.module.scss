@@ -25,10 +25,16 @@
                     margin: 0 auto;
                     .custom-card{
                         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        display: block;
+                        height: 100%;
                         h4{
                             text-align: center;
                             padding: 0 1.6rem;
                             color: var(--brand-primary);
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: block;
                         }
                         p{
                             text-align: center;

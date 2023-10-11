@@ -12,7 +12,12 @@ import Link from 'next/link'
 import ImageA from '../ComponentsInner/Image'
 
 const HomeScreen = ({ data }) => {
-  const { subtitle, tieu_de_chinh, banner, list, kien_thuc_image, chung_toi_image, chung_toi, hanh_trinh_phu_de, content_marketing, ve_chung_toi_danh_sach, slogan_dang_ky, hinh_nen_dang_ky } = data.attributes
+  const {
+    subtitle, tieu_de_chinh, banner, list, kien_thuc_image, chung_toi_image, chung_toi, hanh_trinh_phu_de, content_marketing, ve_chung_toi_danh_sach, slogan_dang_ky,
+    hinh_nen_dang_ky,
+    tin_tucs,
+    phan_tich_tam_lies
+  } = data.attributes
   return (
     <LayoutPage>
       <div className={cn(styles.homePageScreen)}>
@@ -25,11 +30,6 @@ const HomeScreen = ({ data }) => {
           <div className="container">
             <div className="gioithieu">
               <div dangerouslySetInnerHTML={{ __html: tieu_de_chinh }}/>
-              {/* <h2>
-                1 tài khoản{' '}
-                <span className="color-brand">{number_total}+ </span>sản phẩm
-              </h2> */}
-
               <p>{subtitle}</p>
             </div>
             <div className="container-gioithieu">
@@ -48,30 +48,22 @@ const HomeScreen = ({ data }) => {
               <p className="text-center my-5 pt-5 " dangerouslySetInnerHTML={{ __html: hanh_trinh_phu_de }}>
               </p>
               <Row className="g-5 row-hoctap">
-                <Col lg={4}>
-                  <CardItem
-                    link={'/khoahoc/hanhtrinh3goc'}
-                    className={'custom-card'}
-                    title={'HÀNH TRÌNH 3 GỐC'}
-                    des={'Cốt lõi nhất, nền tảng phát triển bền vững'}
-                  />
-                </Col>
-                <Col lg={4}>
-                  <CardItem
-                    link={'/khoahoc/timhieubanthan'}
-                    className={'custom-card'}
-                    title={'THẤU HIÊU BẢN THÂN'}
-                    des={'Cốt lõi nhất, nền tảng phát triển bền vững'}
-                  />
-                </Col>
-                <Col lg={4}>
-                  <CardItem
-                    link={'/khoahoc/daycon3goc'}
-                    className={'custom-card'}
-                    title={'DẠY CON 3 GỐC'}
-                    des={'Cốt lõi nhất, nền tảng phát triển bền vững'}
-                  />
-                </Col>
+                {
+                  phan_tich_tam_lies.data.map((it, index) => {
+                    const dataInner = it.attributes
+                    return (
+                      <Col lg={4} key={index}>
+                        <CardItem
+                          src={dataInner.thumnail.data.attributes.url}
+                          link={dataInner.slug}
+                          className={'custom-card'}
+                          title={dataInner.tieu_de}
+                          des={dataInner.phu_de}
+                        />
+                      </Col>
+                    )
+                  })
+                }
               </Row>
             </section>
           </div>
@@ -99,27 +91,21 @@ const HomeScreen = ({ data }) => {
             <div className="container">
               <div className="row-tintuc">
                 <Row className="g-5 ">
-                  <Col lg={4}>
-                    <CardItem
-                      link={'tintuc/1'}
-                      className={'card-dautu'}
-                      des={'Tips on How to Buy Essay Online the Correct Way'}
-                    />
-                  </Col>
-                  <Col lg={4}>
-                    <CardItem
-                      link={'tintuc/1'}
-                      className={'card-dautu'}
-                      des={'Internet Data Space Software'}
-                    />
-                  </Col>
-                  <Col lg={4}>
-                    <CardItem
-                      link={'tintuc/1'}
-                      className={'card-dautu'}
-                      des={'VDR Software For people who do buiness'}
-                    />
-                  </Col>
+                {
+                  tin_tucs.data.map((it, index) => {
+                    const dataInner = it.attributes
+                    return (
+                      <Col lg={4} key={index}>
+                      <CardItem
+                        src={dataInner.thumnail.data.attributes.url}
+                        link={dataInner.slug}
+                        className={'custom-card'}
+                        title={dataInner.tieu_de}
+                      />
+                    </Col>
+                    )
+                  })
+                }
                 </Row>
                 <div className="mt-5 button-seemore">
                   <Link href={'/kienthuc'}>

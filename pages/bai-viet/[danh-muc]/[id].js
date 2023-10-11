@@ -21,7 +21,10 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async context => {
   const params = context.params
 
-  const danhMuc = params['danh-muc']
+  let danhMuc = params['danh-muc']
+  if (danhMuc?.endsWith('y')) {
+    danhMuc = danhMuc.split('').reverse().slice(1).reverse().join('') + 'ie'
+  }
   const id = params.id
 
   const { data: { data } } = await api.get(`${danhMuc}s?filters[slug][$eq]=${id}&populate=*`)
