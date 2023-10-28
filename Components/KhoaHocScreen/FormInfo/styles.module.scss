@@ -4,6 +4,9 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1.6rem;
   padding: 4rem;
+  @include Responsive(IPAD){
+    padding: 1.6rem;
+}
 
   form {
     display: flex;

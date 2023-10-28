@@ -12,6 +12,9 @@
             z-index: -1;
             height: 50rem;
             object-fit: cover;
+            @include Responsive(IPAD){
+              height: 40rem;
+          }
           }
           span{
             position: absolute;

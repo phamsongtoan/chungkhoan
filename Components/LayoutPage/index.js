@@ -13,7 +13,9 @@ const LayoutPage = ({ children, title, hideNav, contactSetting }) => {
     </Head>
     <div className={cn(styles.layoutPage)}>
         <HeaderInner/>
+        <div className='children-layout'>
         {children}
+        </div>
         {
           <FooterPage contactSetting={contactSetting}/>
         }

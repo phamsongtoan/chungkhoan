@@ -1,5 +1,7 @@
 @import './main.scss';
 @import './color.scss';
+@import './mixin.scss';
+
 
 *,
 *::after,
@@ -110,13 +112,22 @@ a {
 h2 {
   font-size: 4rem !important;
   font-weight: bold !important;
+  @include Responsive(IPAD) {
+    font-size: 3.2rem !important;
+  }
 }
 h3{
   font-size: 3rem !important;
   font-weight: bold !important;
+  @include Responsive(IPAD) {
+    font-size: 2.4rem !important;
+  }
 }
 h4 {
   font-size: 2rem !important;
+  @include Responsive(IPAD) {
+    font-size: 1.6rem !important;
+  }
 }
 h6 {
   font-size: 1.2rem !important;

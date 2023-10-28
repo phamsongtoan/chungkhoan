@@ -12,7 +12,15 @@ const PhanTich = ({ className, title = 'Bộ cơ bản', cat, posts = [] }) => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   }
   return (
     <div className={cn(styles.phantich, className, 'mb-5 pb-5')}>

@@ -16,7 +16,7 @@ const FooterPage = () => {
   const { facebook, hotline, twitter, youtube } = footer.data.attributes
 
   return (
-    <div data-aos="fade-up" className={cn(styles.footerPage, 'pt-5 mt-5')}>
+    <div className={cn(styles.footerPage, 'pt-5 mt-5')}>
       <div className="container">
         <Row className="g-4">
           <Col lg={3}>

@@ -40,17 +40,17 @@ const NewsDetailScreen = ({ className, post, relative }) => {
               </div>
             </Col>
           </Row>
-          <Row className=' g-5'>
-            <Col className='col-lg-8'>
+          <Row className='g-5'>
+            <Col className='col-md-8 col-12'>
               <div className='news-content'>
                  <div dangerouslySetInnerHTML={{ __html: content }}></div>
               </div>
             </Col>
-            <Col className='col-lg-4'>
+            <Col className='col-md-4 col-12'>
               <div>
                   <TitleLine className={'mb-4'} title={'Các bài nổi bật'} />
                   <div className='list-relative'>
-                    {relativePosts.map(post => {
+                    {relativePosts.filter(it => it.id !== post.id).map(post => {
                       const title = get(post, 'attributes.tieu_de')
                       const desc = `Ngày đăng ${dayjs(post.attributes.createdAt).format('DD/MM/YYYY hh:mm')}`
                       const src = get(post, 'attributes.thumnail.data.attributes.url')

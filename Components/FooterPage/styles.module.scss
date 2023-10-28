@@ -5,6 +5,9 @@
   padding-bottom: 3.2rem;
   background: var(--blue-foreground);
   color: #fff;
+  @include Responsive(IPAD){
+    text-align: center;
+  }
   :global {
    .logo-footer{
     font-size: 7rem;
@@ -13,10 +16,14 @@
    a{
     color: #fff !important;
    }
+   
    .social{
     display: flex;
     align-items: center;
     gap: 2.4rem;
+    @include Responsive(IPAD){
+      justify-content: center;
+    }
     li{
       a{
         height: 4.5rem;

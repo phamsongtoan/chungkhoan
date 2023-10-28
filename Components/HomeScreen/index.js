@@ -21,7 +21,7 @@ const HomeScreen = ({ data }) => {
   return (
     <LayoutPage>
       <div className={cn(styles.homePageScreen)}>
-        <div data-aos="fade-down">
+        <div className='banner-home' data-aos="fade-down">
           <figure>
            <ImageA src={banner?.data?.attributes?.url}/>
           </figure>
@@ -33,7 +33,7 @@ const HomeScreen = ({ data }) => {
               <p>{subtitle}</p>
             </div>
             <div className="container-gioithieu">
-              <Row className="g-5">
+              <Row className="g-4 g-md-5">
                 <Col lg={6}>{list?.option1}</Col>
                 <Col lg={6}>{list?.option2}</Col>
                 <Col lg={6}>{list?.option3}</Col>
@@ -47,7 +47,7 @@ const HomeScreen = ({ data }) => {
               </HeaderCustom>
               <p className="text-center my-5 pt-5 " dangerouslySetInnerHTML={{ __html: hanh_trinh_phu_de }}>
               </p>
-              <Row className="g-5 row-hoctap">
+              <Row className="g-4 g-md-5 row-hoctap">
                 {
                   phan_tich_tam_lies.data.map((it, index) => {
                     const dataInner = it.attributes
@@ -69,7 +69,7 @@ const HomeScreen = ({ data }) => {
           </div>
           <section className="mt-5 pt-5 section-kienthuc">
             <div className="container">
-              <Row className="g-5 row-hoctap">
+              <Row className="g-4 g-md-5 row-hoctap">
                 <Col lg={6}>
                   <HeaderCustom
                     className={'mt-5'}
@@ -90,7 +90,7 @@ const HomeScreen = ({ data }) => {
             <div className="background-grey"></div>
             <div className="container">
               <div className="row-tintuc">
-                <Row className="g-5 ">
+                <Row className="g-4 g-md-5 ">
                 {
                   tin_tucs.data.map((it, index) => {
                     const dataInner = it.attributes
@@ -139,7 +139,7 @@ const HomeScreen = ({ data }) => {
           </section>
           <div className="container">
             <section className="about-us pt-5 mt-5">
-              <Row className="g-5">
+              <Row className="g-4 g-md-5">
 
                 <Col lg={6}>
 

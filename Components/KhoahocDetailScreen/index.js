@@ -21,8 +21,8 @@ const KhoahocDetailScreen = ({ className, data }) => {
           <div className="banner-content">
             <div className="container">
               <Row>
-                <Col className="col-lg-6"></Col>
-                <Col className="col-lg-6">
+                <Col className="col-lg-6 col-12"></Col>
+                <Col className="col-lg-6 col-12">
                   <div className="content-inner">
                     <h2 className="text-brand text-uppercase">
                         {tieu_de}

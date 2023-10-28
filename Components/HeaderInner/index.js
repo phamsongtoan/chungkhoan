@@ -3,6 +3,7 @@ import cn from 'classnames'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import MenuFixedInfo from '../ComponentsInner/MenuFixedInfo'
+import Burger from '../ComponentsInner/Burger'
 import { useRouter } from 'next/router'
 
 import {
@@ -81,14 +82,14 @@ const HeaderInner = ({ allCategories }) => {
                     <AiTwotoneMail className='icon-header'/> &nbsp; <span>{mail}</span>
                   </a>
             </div>
-
-            {/* <div onClick={handleShowMenu} className="header-burger"> */}
-            {/* <Burger isCheck={showMenu} handleCheck={handleShowMenu} /> */}
-            {/* </div> */}
           </div>
+          <div onClick={handleShowMenu} className="header-burger">
+            <Burger isCheck={showMenu} handleCheck={handleShowMenu} />
+            </div>
         </div>
       </div>
       <MenuFixedInfo
+        dataNav={dataNav}
         handleClose={handleShowMenu}
         className={cn('menu-info', (showMenu) && 'menu-info--show')}
       />

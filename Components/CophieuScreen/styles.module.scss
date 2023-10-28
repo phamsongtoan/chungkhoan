@@ -9,6 +9,13 @@
         border-radius: 1.6rem;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         padding: 3.2rem 0;
+        overflow: auto;
+       table{
+         table-layout: auto;
+       }
+        @include Responsive(IPAD){
+          font-size: 1.2rem;
+      }
         tr:not(:first-child){
           border-bottom: 1px dashed #333;
           padding-top: 8px;
@@ -19,16 +26,25 @@
           figure{
             padding-left: 4rem;
             margin-bottom: 0;
+            @include Responsive(IPAD){
+              padding-left: 0;
+          }
            
             img{
+              min-width: 4rem ;
               height: 5.7rem;
               width: auto;
+              object-fit: contain;
             }
           }
           .table-name{
               text-align: right;
               padding-right: 4rem;
               height: 100%;
+              white-space: nowrap;
+              @include Responsive(IPAD){
+                padding-right: 0;
+            }
             }
             .table-symbol{
               border-right: 1px solid #000;
@@ -36,6 +52,7 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              white-space: nowrap;
             } 
         }
       }

@@ -15,13 +15,13 @@ const BannerCophieu = ({ className, data }) => {
       <div className="khoahoc-content">
         <div className="container h-100">
           <Row className="g-5 h-100">
-            <Col lg={6} className='h-100'>
-              <div className="content-together h-100">
+            <Col lg={6} className=''>
+              <div className="content-together ">
                 <ImageA src={logo}/>
               </div>
             </Col>
-            <Col lg={6} className='h-100'>
-              <div className="content-together h-100 text-center">
+            <Col lg={6} className=''>
+              <div className="content-together  text-center">
                 <h3 className='fw-bold' dangerouslySetInnerHTML={{ __html: chu }} />
                   {/* Thương vụ cổ phiếu tháng 6 <br/>
                       cổ phiếu nổi bật */}

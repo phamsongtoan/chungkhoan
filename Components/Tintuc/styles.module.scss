@@ -5,8 +5,14 @@
   :global {
     .tintuc-content{
       .content-noibat{
+        figure{
+          width: 100%;
+        }
         img{
             max-height: 30rem;
+            width: 100%;
+            object-fit: cover;
+
           }
           p{
             font-size: 1.6rem;
@@ -26,6 +32,9 @@
   
       gap: 2.4rem;
       margin-left: auto;
+      @include Responsive(IPAD){
+        max-width: 100%;
+    }
       .tintuc-item:not(:last-child){
         border-bottom: 1px solid #000;
         padding-bottom: 2.4rem;

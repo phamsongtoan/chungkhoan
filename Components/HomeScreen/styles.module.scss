@@ -2,13 +2,30 @@
 
 .homePageScreen{
     :global{
+        .banner-home{
+            figure{
+                height: 80vh;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            
+        }
         .content-below{
             margin-top: 5rem;
+            overflow: hidden;
             .gioithieu{
                 text-align: center;
+               
                 p{
                     max-width: 50%;
                     margin: 5rem auto;
+                    @include Responsive(IPAD){
+                        max-width: 100%;
+                         margin: 2rem auto;
+                    }
                 }
             }
             .container-gioithieu{
@@ -18,11 +35,17 @@
                 background-color: var(--brand-primary);
                 font-size: 2rem;
                 font-weight: bold;
+                @include Responsive(IPAD){
+                    max-width: 100%;
+                }
             }
             .hoc-tap{
                 .row-hoctap{
                     max-width: 85%;
                     margin: 0 auto;
+                    @include Responsive(IPAD){
+                        max-width: 100%;
+                    }
                     .custom-card{
                         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                         display: block;
@@ -61,6 +84,11 @@
                     margin: 0 auto;
                     position: relative;
                     transform: translateY(-25%);
+                    @include Responsive(IPAD){
+                         max-width: 100%;
+                         transform: translateY(0);
+                         margin-top: 1.6rem;
+                    }
                     .card-dautu{
                         height: 100%;
                         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;

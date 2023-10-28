@@ -4,6 +4,9 @@
 .newsItem{
   display: flex;
   gap: 1.6rem;
+  figure{
+    max-width: 50%;
+  }
   &:hover{
     h6{
       color: var(--brand-primary);

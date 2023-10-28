@@ -4,9 +4,22 @@ import cn from 'classnames'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
-import { AiOutlineClose } from 'react-icons/ai'
+import {
+  AiOutlineClose,
+  AiTwotoneMail,
+  AiTwotonePhone
+} from 'react-icons/ai'
+import { useRouter } from 'next/router'
+import { useAppContext } from '../../../Context/AppContext'
 
-const MenuFixedInfo = ({ className, handleClose }) => {
+const MenuFixedInfo = ({ className, handleClose, dataNav }) => {
+  const router = useRouter()
+  const { footer } = useAppContext()
+
+  console.log(footer, 'footer')
+
+  const { mail, hotline } = footer.data.attributes
+
   return (
     <div className={cn(styles.menuFixedInfo, className)}>
       <div className="bg-cover" onClick={handleClose}>
@@ -22,17 +35,28 @@ const MenuFixedInfo = ({ className, handleClose }) => {
             </figure>
           </Link>
         </figure>
-        <div className='menu-description'>
-          <p
-            className='text-center'
-            dangerouslySetInnerHTML={{
-              __html:
-                'This is Aalto. A Professional theme for </br> architects, construction and interior designers'
-            }}
-          ></p>
-        </div>
-        <span className='text-center w-full d-block'>
-          © 2017 Qode Interactive, All Rights Reserved
+        <ul>
+              {dataNav.map((item, index) => {
+                const checkActive = router.pathname.includes(item.link)
+                return (
+                  <li className={cn('px-2 mx-4', checkActive && 'li-active')} key={index}>
+                    <Link href={item.link}>
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+            <div className='header-social mt-5'>
+                <a href={`tel:${hotline}`} target="_blank" rel="noreferrer" >
+                    <AiTwotonePhone className='icon-header icon-tel'/> &nbsp; <span>{hotline}</span>
+                  </a>
+                  <a href={`mailto:${mail}`} target="_blank" rel="noreferrer" >
+                    <AiTwotoneMail className='icon-header'/> &nbsp; <span>{mail}</span>
+                  </a>
+            </div>
+        <span className='text-center w-full d-block mt-5'>
+          © 2023 Code Interactive, All Rights Reserved
         </span>
       </div>
     </div>
