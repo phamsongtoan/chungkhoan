@@ -11,14 +11,13 @@ import {
 } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import { useAppContext } from '../../../Context/AppContext'
+import ImageA from '../Image'
 
 const MenuFixedInfo = ({ className, handleClose, dataNav }) => {
   const router = useRouter()
   const { footer } = useAppContext()
 
-  console.log(footer, 'footer')
-
-  const { mail, hotline } = footer.data.attributes
+  const { mail, hotline, logo } = footer.data.attributes
 
   return (
     <div className={cn(styles.menuFixedInfo, className)}>
@@ -30,9 +29,8 @@ const MenuFixedInfo = ({ className, handleClose, dataNav }) => {
         </div>
         <figure>
           <Link href='/'>
-            <figure>
-              <Image src={require('../../../assets/LIBEROSTUDIOLOGO.png')} />
-            </figure>
+            <ImageA src={logo?.data?.attributes?.url}/>
+
           </Link>
         </figure>
         <ul>

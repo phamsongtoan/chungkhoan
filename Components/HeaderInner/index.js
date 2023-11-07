@@ -11,6 +11,7 @@ import {
   AiTwotonePhone
 } from 'react-icons/ai'
 import { useAppContext } from '../../Context/AppContext'
+import ImageA from '../ComponentsInner/Image'
 
 const HeaderInner = ({ allCategories }) => {
   const router = useRouter()
@@ -21,7 +22,9 @@ const HeaderInner = ({ allCategories }) => {
 
   console.log(footer, 'footer')
 
-  const { mail, hotline } = footer.data.attributes
+  const { mail, hotline, logo } = footer.data.attributes
+
+  console.log(logo, 'logo')
 
   const handleShowMenu = () => {
     setShowMenu(!showMenu)
@@ -58,7 +61,7 @@ const HeaderInner = ({ allCategories }) => {
         <div className='header-wrapper'>
           <div className='header-logo'>
             <Link className='fw-bold' href='/'>
-              CCP
+              <ImageA src={logo?.data?.attributes?.url}/>
             </Link>
           </div>
           <div className='header-main' >

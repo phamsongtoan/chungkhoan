@@ -16,7 +16,7 @@ const KienthucScreen = ({ className, ...props }) => {
 
   const firstPostId = first(phanTichTamly)?.id
   const firstPostTitle = first(phanTichTamly)?.attributes.tieu_de
-  const firstPostDesc = first(phanTichTamly)?.attributes.noi_dung
+  const firstPostDesc = first(phanTichTamly)?.attributes.phu_de
   const firstPostThumb = first(phanTichTamly)?.attributes.thumnail.data.attributes.url
 
   return (

@@ -13,9 +13,9 @@
       align-items: center;
       justify-content: space-between;
       .header-logo {
-        font-size: 4rem;
-        a{
-          color:  var(--brand-primary) !important;
+        img{
+          height: 4.8rem;
+          width: auto;
         }
       }
       .header-main {
@@ -68,8 +68,11 @@
         .icon-tel{
           transform: rotate(-270deg);
         }
+        a{
+          transition: all 0.3s ease;
+        }
         a:hover{
-          color: var(--brand-primary);
+          color: var(--brand-primary) !important;
         }
       }
     }

@@ -46,7 +46,7 @@ const KhoahocDetailScreen = ({ className, data }) => {
             <h2 className="text-center mb-5">{chuyen_muc_1?.tieu_de}</h2>
             <Row className="g-5">
               {chuyen_muc_1?.muc_con.map(it => (
-                <Col className="col-lg-4" key={it.id}>
+                <Col className="col-lg-4 col-12" key={it.id}>
                 <div className="content-bad">
                   <h4 className="fw-bold mb-3">{it.tieu_de}</h4>
                   <ul>

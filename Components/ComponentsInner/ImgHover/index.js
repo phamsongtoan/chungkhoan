@@ -7,7 +7,7 @@ import ImageA from '../Image'
 const ImgHover = ({ src, data, className }) => {
   return (
     <figure className={cn(styles.imgHover, className)}>
-      {src ? <ImageA src={src}/> : <Image src={require('../../../assets/projects/banan.jpeg')} />}
+      {src ? <ImageA src={src}/> : <Image src={require('../../../assets/ccp/head-banner.png')} />}
     </figure>
   )
 }

@@ -6,15 +6,29 @@
     .khoahoc-list{
       .list-item{
         cursor: pointer;
+        &:hover{
+         figure{
+          img{
+            transform: scale(1.2);
+          }
+          span{
+            color: var(--brand-primary);
+          }
+         }
+        }
         figure{
           position: relative;
+          overflow: hidden;
           img{
             z-index: -1;
             height: 50rem;
             object-fit: cover;
+            transition: all 0.3s ease;
+            transform: scale(1);
             @include Responsive(IPAD){
               height: 40rem;
           }
+          
           }
           span{
             position: absolute;
@@ -24,6 +38,7 @@
             font-size: 9rem;
             font-weight: bold;
             color: #fff;
+            transition: all 0.3s ease;
           }
         }
         .item-content{

@@ -41,21 +41,23 @@ const TintucScreen = ({ className, posts: inputPosts }) => {
       <div className={cn(styles.tintuc, className, 'mb-5 pb-5')}>
         <div className="container mt-5 pt-5">
           <div>
-            <TitleLine title="Tin tức Tài chính" className={'mb-5'} />
+            <div data-aos="fade-down">
+              <TitleLine title="Tin tức Tài chính" className={'mb-5'} />
+            </div>
             <div className="tintuc-content">
               <Link href={`/bai-viet/tin-tuc/${firstPost.attributes.slug}`} className="content-noibat">
                 <Row className="g-5">
-                  <Col md={6}>
+                  <Col md={6} data-aos="fade-right">
                     <figure>
                       <ImageA
                         src={firstPost.attributes.thumnail.data.attributes.url}
                       />
                     </figure>
                   </Col>
-                  <Col md={6}>
+                  <Col md={6} data-aos="fade-left">
                     <div>
                       <h3 className="mb-4 line-clamp">{firstPost.attributes.tieu_de}</h3>
-                      <p className="text-justify line-clamp-4" dangerouslySetInnerHTML={{ __html: firstPost.attributes.noi_dung }}>
+                      <p className="text-justify line-clamp-4" dangerouslySetInnerHTML={{ __html: firstPost.attributes.phu_de }}>
                       </p>
                     </div>
                   </Col>
@@ -65,7 +67,7 @@ const TintucScreen = ({ className, posts: inputPosts }) => {
                 <Row className="g-5">
                   {top3Posts.map(post => {
                     return (
-                      <Col md={4} key={post.id}>
+                      <Col data-aos="fade-down" md={4} key={post.id}>
                         <CardItem
                           className={'class-show'}
                           src={post.attributes.thumnail.data.attributes.url}
@@ -86,20 +88,19 @@ const TintucScreen = ({ className, posts: inputPosts }) => {
                 return (
                   <Link href={`/bai-viet/tin-tuc/${post.attributes.slug}`} className="tintuc-item" key={post.id}>
                     <Row className="g-5">
-                      <Col md={4}>
+                      <Col md={4} data-aos="fade-right">
                         <figure>
                           <ImageA
                             src={post.attributes.thumnail.data.attributes.url}
                           />
                         </figure>
                       </Col>
-                      <Col md={8}>
+                      <Col md={8} data-aos="fade-left">
                         <div className='ps-5'>
                           <h4 className="mb-4 fw-bold mb-2 line-clamp">
                             {post.attributes.tieu_de}
                           </h4>
-                          <p className='line-clamp' dangerouslySetInnerHTML={{ __html: post.attributes.noi_dung }}>
-                          </p>
+                          <p className='line-clamp' dangerouslySetInnerHTML={{ __html: post.attributes.phu_de }}/>
                         </div>
                       </Col>
                     </Row>

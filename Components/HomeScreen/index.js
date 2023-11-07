@@ -13,11 +13,12 @@ import ImageA from '../ComponentsInner/Image'
 
 const HomeScreen = ({ data }) => {
   const {
-    subtitle, tieu_de_chinh, banner, list, kien_thuc_image, chung_toi_image, chung_toi, hanh_trinh_phu_de, content_marketing, ve_chung_toi_danh_sach, slogan_dang_ky,
+    subtitle, tieu_de_chinh, banner, list, kien_thuc_image, chung_toi_image, chung_toi, hanh_hanh_phu_de, content_marketing, ve_chung_toi_danh_sach, slogan_dang_ky,
     hinh_nen_dang_ky,
     tin_tucs,
     phan_tich_tam_lies
   } = data.attributes
+
   return (
     <LayoutPage>
       <div className={cn(styles.homePageScreen)}>
@@ -45,8 +46,7 @@ const HomeScreen = ({ data }) => {
                 HÀNH TRÌNH HỌC TẬP <br />
                 TẠI CHỢ CỔ PHIẾU
               </HeaderCustom>
-              <p className="text-center my-5 pt-5 " dangerouslySetInnerHTML={{ __html: hanh_trinh_phu_de }}>
-              </p>
+              <p className="text-center my-5 pt-5 " dangerouslySetInnerHTML={{ __html: hanh_hanh_phu_de }}/>
               <Row className="g-4 g-md-5 row-hoctap">
                 {
                   phan_tich_tam_lies.data.map((it, index) => {

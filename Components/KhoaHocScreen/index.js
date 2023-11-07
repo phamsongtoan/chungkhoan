@@ -17,7 +17,7 @@ import ImageA from '../ComponentsInner/Image'
 const KhoaHocScreen = ({ className, ...props }) => {
   const { bokhoahoc, khoahoc } = props
 
-  const { danh_gia } = khoahoc?.data?.attributes
+  const { danh_gia, loi_gioi_thieu } = khoahoc?.data?.attributes
   const { data } = bokhoahoc
 
   const settings = {
@@ -35,6 +35,7 @@ const KhoaHocScreen = ({ className, ...props }) => {
       <div className={cn(styles.khoahoc, className, 'mb-5 pb-5')}>
         <div className="container mt-5 pt-5">
           <div className="khoahoc-list mb-5 pb-5">
+            <div className='mb-5'dangerouslySetInnerHTML={{ __html: loi_gioi_thieu }} />
             <Row className="g-5">
               {data.slice(0, 3).map((it, index) => {
                 const dataInner = it?.attributes
