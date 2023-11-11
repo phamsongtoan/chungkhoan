@@ -13,12 +13,16 @@ import {
   BsFillPinMapFill
 } from 'react-icons/bs'
 import ImageA from '../ComponentsInner/Image'
+import ButtonCustom from '../ComponentsInner/ButtonCustom'
+import HeaderCustom from '../ComponentsInner/HeaderCustom'
 
 const KhoaHocScreen = ({ className, ...props }) => {
   const { bokhoahoc, khoahoc } = props
 
   const { danh_gia, loi_gioi_thieu } = khoahoc?.data?.attributes
   const { data } = bokhoahoc
+
+  console.log(bokhoahoc, 'bokhoahoc')
 
   const settings = {
     dots: false,
@@ -27,7 +31,7 @@ const KhoaHocScreen = ({ className, ...props }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    autoplay: true
+    autoplay: false
   }
 
   return (
@@ -37,34 +41,39 @@ const KhoaHocScreen = ({ className, ...props }) => {
           <div className="khoahoc-list mb-5 pb-5">
             <div className='mb-5'dangerouslySetInnerHTML={{ __html: loi_gioi_thieu }} />
             <Row className="g-5">
-              {data.slice(0, 3).map((it, index) => {
+              {data.map((it, index) => {
                 const dataInner = it?.attributes
                 return (
                  <Col lg={4} key={it.id}>
-                 <Link href={`khoahoc/${it.attributes.slug}`} className="list-item">
-                   <figure>
-                      <ImageA src={dataInner?.thumnail?.data?.attributes?.url}/>
-                     <span>{index + 1}</span>
-                   </figure>
-                   <div className="item-content">
-                     <h4 className="mt-4">{dataInner?.tieu_de}</h4>
-                     <span className='sub'>{dataInner?.phu_de}</span>
-                     <ul className="mt-3">
-                       <li>
-                         <BsFillPersonFill />
-                         <span>{dataInner?.chuc_danh}</span>
-                       </li>
-                       <li>
-                         <BsFillClockFill />
-                         <span>{dataInner?.thoi_gian}</span>
-                       </li>
-                       <li>
-                         <BsFillPinMapFill />
-                         <span>{dataInner?.dia_diem}</span>
-                       </li>
-                     </ul>
-                   </div>
-                 </Link>
+                  <Link href={`khoahoc/${it.attributes.slug}`} className="list-item">
+                    <figure>
+                        <ImageA src={dataInner?.thumnail?.data?.attributes?.url}/>
+                      {/* <span>{index + 1}</span> */}
+                    </figure>
+                    <div className="item-content">
+                      <h4 className="mt-4">{dataInner?.tieu_de}</h4>
+                      <span className='sub'>{dataInner?.phu_de}</span>
+                      <ul className="mt-3">
+                        <li>
+                          <BsFillPersonFill />
+                          <span>{dataInner?.chuc_danh}</span>
+                        </li>
+                        <li>
+                          <BsFillClockFill />
+                          <span>{dataInner?.thoi_gian}</span>
+                        </li>
+                        <li>
+                          <BsFillPinMapFill />
+                          <span>{dataInner?.dia_diem}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className='item-more'>
+                      <ButtonCustom className={'button-primary'}>
+                        Xem thêm
+                      </ButtonCustom>
+                    </div>
+                  </Link>
                </Col>
                 )
               })}
@@ -74,6 +83,10 @@ const KhoaHocScreen = ({ className, ...props }) => {
             <FormInfo />
           </div>
           <div className="khoahoc-fb mt-5 pt-5">
+              <h2 className='mb-4 pb-4 text-center'>
+                Học viên nói về <br/> các khoá học
+                tại CCP
+              </h2>
             <Slider {...settings}>
               { danh_gia.map((it) => {
                 return (

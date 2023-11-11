@@ -20,7 +20,7 @@ const Feedback = ({ className, data }) => {
     <div className={cn(styles.feedback, className)}>
       <Row className="g-5">
         <Col lg={6}>
-          <ImageA src={hinh_nguoi?.data?.attributes?.url}/>
+          <ImageA clas src={hinh_nguoi?.data?.attributes?.url}/>
         </Col>
         <Col lg={6}>
           <div className="fb-main">

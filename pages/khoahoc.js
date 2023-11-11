@@ -4,7 +4,7 @@ import { api } from '../libs/api'
 
 export const getStaticProps = async () => {
   const { data } = await api.get('/khoa-hoc?populate=deep,10')
-  const { data: bokhoahoc } = await api.get('/bo-khoa-hocs?populate=*&sort=id:desc&pagination[limit]=3')
+  const { data: bokhoahoc } = await api.get('/bo-khoa-hocs?populate=*&sort=id:desc&pagination[limit]=6')
 
   return {
     props: {

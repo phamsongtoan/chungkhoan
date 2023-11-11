@@ -21,14 +21,11 @@
           overflow: hidden;
           img{
             z-index: -1;
-            height: 50rem;
+            aspect-ratio: 3/2;
             object-fit: cover;
             transition: all 0.3s ease;
             transform: scale(1);
-            @include Responsive(IPAD){
-              height: 40rem;
-          }
-          
+            width: 100%;
           }
           span{
             position: absolute;
@@ -57,6 +54,13 @@
             align-items: center;
             gap: 1.6rem;
           }
+        }
+        .item-more{
+          margin-top: 1.2rem;
+          padding-top: 1.2rem;
+          border-top: 1px solid ;
+          border-color: var(--default-border);
+          display: inline-block;
         }
       }
     }
