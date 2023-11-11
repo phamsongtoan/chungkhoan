@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { ToastContainer } from 'react-toastify'
 import AOS from 'aos'
 
@@ -40,7 +41,7 @@ function MyApp ({ Component, pageProps, ...props }) {
         <ToastContainer position="bottom-right"/>
       </AppProvider>
       <div id="fb-root"></div>
-      <div id="fb-customer-chat" className="fb-customerchat"></div>
+      <div id="fb-customer-chat" className="fb-customerchat" theme_color="#ffb700"></div>
     </>
 
   )
