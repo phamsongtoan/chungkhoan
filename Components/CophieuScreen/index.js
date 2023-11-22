@@ -23,7 +23,7 @@ const CoPhieuScreen = ({ className, data }) => {
 
   const contentBanner = { hinhnen: hinh_nen.data.attributes.url, logo: logo_noi_bat.data.attributes.url, chu: chu_noi_bat }
   return (
-    <LayoutPage>
+    <LayoutPage title={'Cổ Phiếu'}>
       <div className={cn(styles.khoahoc, className, 'mb-5 pb-5')}>
        <BannerCophieu data={contentBanner} />
         <div className="container">

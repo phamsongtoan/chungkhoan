@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
 
 export default function dieukhoansudung (props) {
   return (
-  <LayoutPage>
+  <LayoutPage title={'Điều khoản sử dụng'}>
     <div className="container py-5">
         <div style={{ minHeight: '80vh' }} className='dieukhoansudung' dangerouslySetInnerHTML={{ __html: props.data.attributes.noi_dung }}/>
     </div>

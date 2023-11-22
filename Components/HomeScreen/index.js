@@ -55,7 +55,7 @@ const HomeScreen = ({ data }) => {
                       <Col lg={4} key={index}>
                         <CardItem
                           src={dataInner.thumnail.data.attributes.url}
-                          link={dataInner.slug}
+                          link={`bai-viet/phan-tich-tam-ly/${dataInner.slug}`}
                           className={'custom-card'}
                           title={dataInner.tieu_de}
                           des={dataInner.phu_de}
@@ -98,7 +98,7 @@ const HomeScreen = ({ data }) => {
                       <Col lg={4} key={index}>
                       <CardItem
                         src={dataInner.thumnail.data.attributes.url}
-                        link={dataInner.slug}
+                        link={`bai-viet/tin-tuc/${dataInner.slug}`}
                         className={'custom-card'}
                         title={dataInner.tieu_de}
                       />

@@ -14,7 +14,6 @@ import {
 } from 'react-icons/bs'
 import ImageA from '../ComponentsInner/Image'
 import ButtonCustom from '../ComponentsInner/ButtonCustom'
-import HeaderCustom from '../ComponentsInner/HeaderCustom'
 
 const KhoaHocScreen = ({ className, ...props }) => {
   const { bokhoahoc, khoahoc } = props
@@ -35,7 +34,7 @@ const KhoaHocScreen = ({ className, ...props }) => {
   }
 
   return (
-    <LayoutPage>
+    <LayoutPage title={'Khoá Học'}>
       <div className={cn(styles.khoahoc, className, 'mb-5 pb-5')}>
         <div className="container mt-5 pt-5">
           <div className="khoahoc-list mb-5 pb-5">
