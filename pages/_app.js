@@ -13,6 +13,7 @@ import 'react-image-lightbox/style.css'
 import { useEffect } from 'react'
 import { api } from '../libs/api'
 import { AppProvider } from '../Context/AppContext'
+import Head from 'next/head'
 
 function MyApp ({ Component, pageProps, ...props }) {
   console.log('🐳 -> MyApp -> props', props)
@@ -35,7 +36,29 @@ function MyApp ({ Component, pageProps, ...props }) {
 
   return (
     <>
+      <Head>
+      <meta name="description" content="Nơi phổ cập đầy đủ kiến thức, thị trường chứng khoán, cổ phiếu"/>
 
+    <link rel="canonical" href="https://chocophieu.org/" />
+
+    <meta property="og:site_name" content="https://chocophieu.org/"/>
+    <meta property="og:rich_attachment" content="true"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" itemprop="url" content="https://chocophieu.org/"/>
+    <meta property="og:image" itemprop="thumbnailUrl" content="https://apichungkhoang.orokucode.com/uploads/logo_0896f21206.png"/>
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="800"/>
+    <meta property="og:image:height" content="354"/>
+    <meta content="Chocophieu - Phổ cập kiến thức cổ phiếu" itemprop="headline" property="og:title"/>
+    <meta itemprop="description" property="og:description" content="Nơi phổ cập đầy đủ kiến thức, thị trường chứng khoán, cổ phiếu"/>
+
+    <meta name="twitter:card" value="summary"/>
+    <meta name="twitter:url" content="https://chocophieu.org//"/>
+    <meta name="twitter:title" content="Chocophieu - Phổ cập kiến thức cổ phiếu"/>
+    <meta name="twitter:description" content="Nơi phổ cập đầy đủ kiến thức, thị trường chứng khoán, cổ phiếu"/>
+    <meta name="twitter:image" content="https://apichungkhoang.orokucode.com/uploads/logo_0896f21206.png"/>
+
+      </Head>
       <AppProvider state={props}>
         <Component {...{ ...pageProps, ...props }} />
         <ToastContainer position="bottom-right"/>
