@@ -43,8 +43,9 @@
         align-items: center;
         justify-content: center;
         font-size: 2.4rem;
+        color: var(--blue-foreground) !important;
         &:hover{
-          color: var(--blue-foreground) !important;
+          color: #fff !important;
         }
       }
     }
